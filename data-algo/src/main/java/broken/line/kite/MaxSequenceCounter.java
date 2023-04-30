@@ -41,8 +41,25 @@ public class MaxSequenceCounter {
         return maxCount;
     }
 
-    public static int partitionCount(int[] arr) {
-        return 0;
+    /**
+     * 解法 动态规划
+     * https://leetcode.cn/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/solution/lian-xu-zi-shu-zu-de-zui-da-he-by-leetco-tiui/
+     *
+     * @param nums
+     * @return
+     */
+    public static int partitionCount(int[] nums) {
+        if (Objects.isNull(nums)) {
+            return 0;
+        }
+        int pre = 0;
+        int maxCount = nums[0];
+        for (int num : nums) {
+            pre = Math.max(pre + num, num);
+            maxCount = Math.max(pre, maxCount);
+        }
+
+        return maxCount;
     }
 
 

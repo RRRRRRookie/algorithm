@@ -10,7 +10,7 @@ public class SelectSorter {
 
 
     public static void selectSort(int[] arr) {
-        if (Objects.isNull(arr) || arr.length == 1) {
+        if (Objects.isNull(arr) || arr.length < 2) {
             return;
         }
         for (int i = 0; i < arr.length - 1; i++) {
@@ -20,16 +20,11 @@ public class SelectSorter {
                     cursor = j;
                 }
             }
-            swap(arr, cursor, i);
+            SortUtils.swap(arr, cursor, i);
         }
 
     }
 
-    private static void swap(int[] arr, int cursor, int i) {
-        int temp = arr[cursor];
-        arr[cursor] = arr[i];
-        arr[i] = temp;
-    }
 
 
     public static void main(String[] args) {
