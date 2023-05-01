@@ -13,7 +13,9 @@ public class SortUtils {
     }
 
     static void bitwiseSwap(int[] arr, int cursor, int i) {
-
+        arr[cursor] = arr[cursor] ^ arr[i];
+        arr[i] = arr[cursor] ^ arr[i];
+        arr[cursor] = arr[cursor] ^ arr[i];
     }
 
 }
