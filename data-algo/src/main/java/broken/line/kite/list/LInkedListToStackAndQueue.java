@@ -53,7 +53,7 @@ public class LInkedListToStackAndQueue {
                 head = head.next;
                 size--;
             }
-            if (size == 0) {
+            if (head == null) {
                 tail = null;
             }
             return value;
