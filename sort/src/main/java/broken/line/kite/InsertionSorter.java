@@ -13,8 +13,8 @@ public class InsertionSorter {
             return;
         }
 
-        for (int i = 1; i < arr.length - 1; i++) {
-            for (int j = i; j > 0 && arr[j] > arr[j + 1]; j--) {
+        for (int i = 1; i < arr.length; i++) {
+            for (int j = i - 1; j > 0 && arr[j] > arr[j + 1]; j--) {
                 SortUtils.swap(arr, j, j + 1);
             }
         }
