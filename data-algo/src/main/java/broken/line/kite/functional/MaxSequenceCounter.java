@@ -1,4 +1,4 @@
-package broken.line.kite;
+package broken.line.kite.functional;
 
 import java.util.Objects;
 
