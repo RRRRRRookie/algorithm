@@ -24,7 +24,15 @@ public class Operation {
         print(minValue);
         print(minValue >> 2);
         print(minValue >>> 2);
+        print(minValue << 2);
 
+        System.out.println("==============================================");
+
+        int maxValue = Integer.MAX_VALUE;
+        print(maxValue);
+        print(maxValue >> 2);
+        print(maxValue >>> 2);
+        print(maxValue << 2);
     }
 
     // print 整数中包含的1 & 两个1相遇才是1
