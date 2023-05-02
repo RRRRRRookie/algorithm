@@ -59,6 +59,61 @@ class LInkedListToStackAndQueueTest {
             return head == null ? null : head.value;
         }
 
+    }
+
+    /**
+     * 用单向链表实现队列 队列什么特性 FIFO
+     * 可以用一个节点实现 但是 poll的时间复杂度 就要由O(1) 变成O(N)
+     * size() isEmpty() offer(T t) poll() peek()
+     *
+     * @param <T>
+     */
+    public static class MyQueue<T> {
+
+        private Node<T> head;
+        private Node<T> tail;
+
+        private int size;
+
+
+        public int size() {
+            return this.size;
+        }
+
+        public boolean isEmpty() {
+            return this.size == 0;
+        }
+
+        public void offer(T t) {
+            Node<T> newNode = new Node<>(t);
+            if (head == null && tail == null) {
+                head = tail = newNode;
+            } else {
+                // 将新的节点变为尾节点
+                tail.next = newNode;
+                tail = newNode;
+            }
+            size++;
+        }
+
+        public T poll() {
+            if (head != null) {
+                T value = head.value;
+                head = head.next;
+                // 当头节点为空时 代表所有元素清空 尾元素也应该清空
+                if (head == null) {
+                    tail = null;
+                }
+                size--;
+                return value;
+            }
+            return null;
+        }
+
+
+        public T peek() {
+            return head == null ? null : head.value;
+        }
 
     }
 
