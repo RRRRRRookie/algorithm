@@ -39,6 +39,7 @@ public class Switch {
 
         int onlyOne = 0;
 
+
         for (int i = 0; i < arr.length; i++) {
             if ((rightOne & arr[i]) != 0) {
                 onlyOne ^= arr[i];
@@ -47,6 +48,9 @@ public class Switch {
         System.out.printf("一个数字是%s 另一个数字是%s%n", onlyOne, (onlyOne ^ eor));
     }
 
+
+    // 怎么把一个int类型的数，提取出二进制中最右侧的1来
+    // 求有多少个1
     public static int bitCounts(int num) {
         int count = 0;
         while (num != 0) {
