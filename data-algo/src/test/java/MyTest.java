@@ -32,4 +32,12 @@ public class MyTest {
         // 1
         System.out.println(3 & -3);
     }
+
+    @Test
+    void test4() {
+        // 溢出会变成负数
+        int num = (Integer.MAX_VALUE - 1) * 2;
+        System.out.println(num);
+    }
+
 }
