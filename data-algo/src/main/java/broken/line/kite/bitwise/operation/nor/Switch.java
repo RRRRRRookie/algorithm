@@ -61,5 +61,10 @@ public class Switch {
         return count;
     }
 
+    public static void main(String[] args) {
+        System.out.println(bitCounts(-1));
+        System.out.println(bitCounts(1));
+    }
+
 
 }
