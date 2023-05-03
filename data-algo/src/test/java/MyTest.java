@@ -16,8 +16,8 @@ public class MyTest {
 
     @Test
     void test2() {
-        int i = 170 % 64;
-        int j = 170 & 63;
+        int i = 34241 % 32;
+        int j = 34241 & 31;
         System.out.println(i + "  " + j);
 
     }
