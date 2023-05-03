@@ -14,9 +14,9 @@ package broken.line.kite.list;
  */
 public class AddTwoList {
 
-    public ListNode addTwoList(ListNode head1, ListNode head2) {
+    public ListNode addTwoNumbers(ListNode head1, ListNode head2) {
         int length1 = getLength(head1);
-        int length2 = getLength(head1);
+        int length2 = getLength(head2);
         ListNode l = length1 > length2 ? head1 : head2;
         ListNode s = l.equals(head1) ? head2 : head1;
         ListNode curlL = l;
@@ -24,19 +24,19 @@ public class AddTwoList {
         ListNode last = curlL;
         int carry = 0;
         //先遍历短的 在遍历长的
-        while (curlS.next != null) {
+        while (curlS != null) {
             int sum = carry + curlL.val + curlS.val;
-            curlL.val = sum / 10;
-            carry = sum % 10;
-            curlL = curlL.next;
+            curlL.val = sum % 10;
+            carry = sum / 10;
             last = curlL;
+            curlL = curlL.next;
             curlS = curlS.next;
         }
 
-        while (curlL.next != null) {
+        while (curlL != null) {
             int sum = carry + curlL.val;
-            curlL.val = sum / 10;
-            carry = sum % 10;
+            curlL.val = sum % 10;
+            carry = sum / 10;
             last = curlL;
             curlL = curlL.next;
         }
@@ -45,14 +45,15 @@ public class AddTwoList {
             last.next = new ListNode(1);
         }
 
-
         return l;
     }
 
     private int getLength(ListNode head) {
         int count = 0;
-        while (head.next != null) {
+        // head.next != null 头节点没算上
+        while (head != null) {
             count++;
+            head = head.next;
         }
         return count;
     }
