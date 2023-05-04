@@ -4,6 +4,8 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
+ * https://leetcode.com/problems/merge-k-sorted-lists/
+ *
  * @author: wanjia1
  * @date: 2023/5/4
  */
@@ -28,7 +30,7 @@ public class MergeKSortList {
             heap.add(pre.next);
         }
         while (!heap.isEmpty()) {
-            final ListNode cur = heap.poll();
+            ListNode cur = heap.poll();
             pre.next = cur;
             // 保证这一次添加的节点和下一次添加的节点能够连上
             pre = cur;
