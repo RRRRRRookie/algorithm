@@ -14,6 +14,33 @@ public class BinaryTree {
     // 递归序
     // TODO 构建二叉树
 
+    private void processFirst(Node node) {
+        if (node == null) {
+            return;
+        }
+        System.out.println(node.value);
+        processFirst(node.left);
+        processFirst(node.right);
+    }
+
+    private void processMid(Node node) {
+        if (node == null) {
+            return;
+        }
+        processMid(node.left);
+        System.out.println(node.value);
+        processMid(node.right);
+    }
+
+    private void processBehind(Node node) {
+        if (node == null) {
+            return;
+        }
+        processBehind(node.left);
+        processBehind(node.right);
+        System.out.println(node.value);
+    }
+
     public static class Node<T> {
         T value;
         Node<T> left;
