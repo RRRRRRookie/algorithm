@@ -3,6 +3,7 @@ package broken.line.kite.bitwise.operation;
 /**
  * @author: wanjia1
  * @date: 2023/4/30
+ * https://leetcode.com/problems/divide-two-integers
  */
 public class Operation {
 
@@ -103,7 +104,7 @@ public class Operation {
             }
             // (a + 1 ) / b = c
             int res = innerDivide(add(a, 1), b);
-            // a - b*c = e
+            // a - b*c = e ==
             int mid2 = minus(res, multi(b, res));
             // e / b
             int mid3 = innerDivide(mid2, b);
