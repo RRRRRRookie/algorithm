@@ -1,4 +1,4 @@
-package broken.line.kite;
+package broken.line.kite.rookie.class01;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,6 +28,26 @@ public class InsertSort {
         }
         int length = arr.length;
         for (int i = 0; i < length; i++) {
+//            for (int j = i ; j >= 0; j--) {
+//                if (arr[j] > arr[j - 1]) {
+//                    swap(arr, j, j - 1);
+//                }
+//            }
+            for (int j = i - 1; j >= 0; j--) {
+                if (arr[j] > arr[j + 1]) {
+                    swap(arr, j, j + 1);
+                }
+            }
+        }
+
+    }
+
+    private static void sort1(int[] arr) {
+        if (Objects.isNull(arr) || arr.length < 2) {
+            return;
+        }
+        int length = arr.length;
+        for (int i = 1; i < length; i++) {
 //            for (int j = i ; j >= 0; j--) {
 //                if (arr[j] > arr[j - 1]) {
 //                    swap(arr, j, j - 1);
