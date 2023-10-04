@@ -2,6 +2,10 @@
 
 数据结构及算法
 
+本质上数据结构只分为两种
+一个是地址连续型 线性 查询寻址容易快 删减加慢
+一个是地址引用型 非线性 查询寻址容易慢 删减加快
+
 学习路线参考 https://github.com/algorithmzuo
 石墨文档 https://shimo.im/docs/68cd6h3TwygPwx8W/read 1036245105 git
 
