@@ -1,50 +1,40 @@
 package broken.line.kite.rookie.class03;
 
-import lombok.extern.slf4j.Slf4j;
-
 import java.util.Arrays;
 import java.util.Objects;
 
 /**
  * @author: wanjia1
- * @date: 2023/10/4
+ * @date: 2023/10/5
  */
-@Slf4j
-public class BinarySearch {
+public class BS2FindNearLeft {
 
-
-    private static boolean search(int[] arr, int num) {
+    private static int find(int[] arr, int num) {
+        int index = -1;
         if (Objects.isNull(arr) || arr.length == 0) {
-            log.info("index is -1");
-            return false;
+            return index;
         }
         int L = 0;
         int R = arr.length - 1;
-        // 可能会溢出
-//
         while (L <= R) {
-//            int mid = (L >> 1) + (R >> 1);
-            int mid = (L + R) / 2;
-            if (num < arr[mid]) {
+            int mid = (R - L) / 2 + L;
+            if (arr[mid] >= num) {
+                index = mid;
                 R = mid - 1;
-            } else if (num > arr[mid]) {
-                L = mid + 1;
             } else {
-                log.info("index is {}", mid);
-                return true;
+                L = mid + 1;
             }
         }
-        log.info("index is -1");
-        return false;
+        return index;
     }
 
-    public static boolean test(int[] sortedArr, int num) {
-        for (int cur : sortedArr) {
-            if (cur == num) {
-                return true;
+    public static int test(int[] arr, int value) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] >= value) {
+                return i;
             }
         }
-        return false;
+        return -1;
     }
 
     // for test
@@ -56,11 +46,17 @@ public class BinarySearch {
         return arr;
     }
 
-    /**
-     * 给定一个有序数组 查找某个数字
-     *
-     * @param args
-     */
+    // for test
+    public static void printArray(int[] arr) {
+        if (arr == null) {
+            return;
+        }
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         int testTime = 500000;
         int maxSize = 10;
@@ -70,14 +66,16 @@ public class BinarySearch {
             int[] arr = generateRandomArray(maxSize, maxValue);
             Arrays.sort(arr);
             int value = (int) ((maxValue + 1) * Math.random()) - (int) (maxValue * Math.random());
-            if (test(arr, value) != search(arr, value)) {
-                System.out.println("出错了！");
+            if (test(arr, value) != find(arr, value)) {
+                printArray(arr);
+                System.out.println(value);
+                System.out.println(test(arr, value));
+                System.out.println(find(arr, value));
                 succeed = false;
                 break;
             }
         }
         System.out.println(succeed ? "Nice!" : "Fucking fucked!");
     }
-
 
 }
