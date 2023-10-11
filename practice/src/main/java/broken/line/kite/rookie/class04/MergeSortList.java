@@ -32,6 +32,7 @@ public class MergeSortList {
             list2 = list2.next;
         }
 
+        // 节点是动态的
         ListNode cur = firstNode;
 
         while (list1 != null || list2 != null) {
@@ -46,6 +47,8 @@ public class MergeSortList {
                 break;
             }
 
+            // firstNode.next 错误
+            // 用两个if判断会空指针
             if (list1.val <= list2.val) {
                 cur.next = list1;
                 list1 = list1.next;

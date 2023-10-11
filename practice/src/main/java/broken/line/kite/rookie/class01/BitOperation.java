@@ -18,8 +18,8 @@ public class BitOperation {
      * &&
      * ^ 相同为0 不同为1
      * << 不包括符号位左移
-     * >> 不包括符号位右移
-     * >>> 包括符号位右移
+     * >> 包括符号位右移
+     * >>> 不包括符号位右移
      */
     public static String printBinary(int num) {
         StringBuilder stringBuilder = new StringBuilder();
@@ -61,7 +61,7 @@ public class BitOperation {
         log.info(" 负1的 十进制 {} 二进制 {}", -1, printBinary(-1));
 //        -101
         log.info("101 取反 + 1 {}", ~101 + 1);
-//        -888888
+//        -888888 相反数
         log.info("888888 取反 + 1 {}", ~888888 + 1);
         log.info("-888888 取反 + 1 {}", ~-888888 + 1);
         // 0补位
